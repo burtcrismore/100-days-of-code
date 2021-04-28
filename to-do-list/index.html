@@ -4,10 +4,36 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/bff7f91377.js"
+			crossorigin="anonymous"
+		></script>
 		<link rel="stylesheet" href="style.css" />
 		<title>Document</title>
 	</head>
 	<body>
+		<!-- Parent container with banner and date -->
+		<!-- List of tasks with delete and complete buttons -->
+		<!-- New task field and submit button -->
+
+		<div class="todo">
+			<div class="todo__add-list">
+				<button class="todo__submit-btn">
+					<span class="fal fa-plus"></span>
+				</button>
+				<input
+					type="text"
+					class="todo__submit-field"
+					placeholder="Add Task"
+				/>
+			</div>
+			<ul class="todo__display-list">
+				<li class="todo__list-item">
+					<span class="fal fa-circle"></span> Pick up groceries for dinner
+					<span class="fal fa-times-circle"></span>
+				</li>
+			</ul>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>
