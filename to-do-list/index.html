@@ -9,15 +9,30 @@
 			crossorigin="anonymous"
 		></script>
 		<link rel="stylesheet" href="style.css" />
-		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>To-Do List</title>
 	</head>
 	<body>
-		<!-- Parent container with banner and date -->
-		<!-- List of tasks with delete and complete buttons -->
-		<!-- New task field and submit button -->
-
 		<div class="todo">
-			<div class="todo__add-list">
+			<header class="todo__header">
+				<h1 class="todo__headline">My Tasks</h1>
+				<h2 class="todo__date">Sunday, May 1</h2>
+
+				<div class="todo__message"></div>
+			</header>
+			<main class="todo__content">
+				<ul class="todo__list">
+					<!-- New tasks will append here -->
+				</ul>
+				<div class="todo__task-complete">
+					<h5 class="todo__completed-text">4/5 Complete</h5>
+				</div>
+			</main>
+			<footer class="todo__footer">
 				<button class="todo__submit-btn">
 					<span class="fal fa-plus"></span>
 				</button>
@@ -26,13 +41,10 @@
 					class="todo__submit-field"
 					placeholder="Add Task"
 				/>
+			</footer>
+			<div class="todo__modal">
+				<div class="todo__add-list"></div>
 			</div>
-			<ul class="todo__display-list">
-				<li class="todo__list-item">
-					<span class="fal fa-circle"></span> Pick up groceries for dinner
-					<span class="fal fa-times-circle"></span>
-				</li>
-			</ul>
 		</div>
 		<script src="script.js"></script>
 	</body>

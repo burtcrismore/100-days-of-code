@@ -1,0 +1,17 @@
+# Mac System Files
+####################
+.DS_store
+
+# Ignore Dist
+####################
+gulpfile.js
+package.json
+package-lock.json
+
+# Ignore Modules
+####################
+**node_modules/
+
+# Ignore everything while developing
+####################
+# ** uncomment to use
