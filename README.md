@@ -18,3 +18,12 @@ The 100 Days of Code Challenge
 <h3>Day 5</h3>
 <p><strong>Progress Report:</strong> Today I spent some time styling my To-Do list app. I also need to figure out how to run my "for of" loop each time a new element is appended to the DOM.</p>
 <hr>
+<h3>Day 6</h3>
+<p><strong>Progress Report:</strong> Today was a troubleshooting kind of day. I was able to figure out that running a click event on an "svg" is problematic.</p>
+<hr>
+<h3>Day 7</h3>
+<p><strong>Progress Report:</strong> Today I worked on refactoring some code. Nothing too mind blowing, but I'm coding.</p>
+<hr>
+<h3>Day 8</h3>
+<p><strong>Progress Report:</strong> Today I worked on error handling with conditional statements. If the user doesn't fill out the field, show a message.</p>
+<hr>

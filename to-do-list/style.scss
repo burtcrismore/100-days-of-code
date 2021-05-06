@@ -29,43 +29,58 @@ body {
 
 	.todo__header {
 		padding: 0 20px;
+
+		.todo__task-status {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+		}
 	}
 
 	.todo__content {
 		padding: 0 10px;
-	}
 
-	.todo__list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		overflow-y: scroll;
-		height: 413px;
+		.todo__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			overflow-y: scroll;
+			height: 413px;
 
-		.todo__list-item {
-			display: flex;
-			padding: 10px 15px;
-			background: rgba(255, 255, 255, 0.6);
-			border-radius: 10px;
-			font-size: 1.3rem;
-			margin-bottom: 3px;
-			&:last-child {
-				margin-bottom: 0;
-			}
+			.todo__list-item {
+				display: flex;
+				padding: 10px 15px;
+				background: rgba(255, 255, 255, 0.6);
+				border-radius: 10px;
+				font-size: 1.3rem;
+				margin-bottom: 3px;
+				&:last-child {
+					margin-bottom: 0;
+				}
 
-			.todo__list-text {
-				order: 1;
-				font-weight: 500;
+				.todo__list-text {
+					order: 1;
+					font-weight: 500;
+				}
+				.fa-circle {
+					order: 0;
+					// cursor: pointer;
+					margin-right: 10px;
+				}
+				.fa-times-circle {
+					order: 2;
+					margin-left: auto;
+					// cursor: pointer;
+				}
 			}
-			.fa-circle {
-				order: 0;
-				cursor: pointer;
-				margin-right: 10px;
-			}
-			.fa-times-circle {
-				order: 2;
-				margin-left: auto;
-				cursor: pointer;
+		}
+
+		.todo__error-message {
+			text-align: center;
+			display: none;
+
+			.todo__message-text {
+				margin: 7px 0;
 			}
 		}
 	}
@@ -89,6 +104,9 @@ body {
 			font-size: 1.7rem;
 			background: #60198f;
 			color: #fff;
+			&:focus:not(:focus-visible) {
+				outline: none;
+			}
 		}
 
 		.todo__submit-field {

@@ -1,10 +1,9 @@
 // Create a to-do list
 
-function addTask() {
+function task() {
 	let getToDo = document.querySelector('.todo');
 	let subBtn = getToDo.querySelector('.todo__submit-btn');
 	let getField = getToDo.querySelector('.todo__submit-field');
-	let getDeletes = getToDo.querySelectorAll('.fa-times-circle');
 	let li = getToDo.querySelectorAll('.todo__list-item');
 
 	// Add message if no tasks for the day
@@ -30,52 +29,70 @@ function addTask() {
 
 	// Display total count of tasks and tasks completed
 
-	// NOTE this for loop doesn't find the remove icon because the function runs before the li is created
 	// Remove task when icon clicked
+
 	function removeTask() {
+		// let deleteBtns = getToDo.querySelectorAll('.fa-times-circle');
+		let deleteBtns = getToDo.querySelectorAll('.todo__delete-btn');
+
 		console.log('it works');
+		console.log(deleteBtns.length);
 		// Search for all remove task buttons
-		for (const getDelete of getDeletes) {
-			getDelete.addEventListener('click', function (e) {
-				e.target.remove();
+		for (const deleteBtn of deleteBtns) {
+			deleteBtn.addEventListener('click', function (e) {
+				e.currentTarget.parentElement.remove();
 				console.log('remove');
+				console.log(e.target);
+				console.log(e.currentTarget);
 			});
 		}
 	}
-	removeTask();
 
-	// Check if add button has been clicked
-	subBtn.addEventListener('click', function (e) {
-		// Check if task field is empty
+	function addTask() {
+		// Check if add button has been clicked
+		subBtn.addEventListener('click', function () {
+			let errMsg = getToDo.querySelector('.todo__error-message');
+			// Check if task field is empty
+			if (getField.value === '') {
+				return (errMsg.style.display = 'block');
+			}
+			if (errMsg.style.display === 'block') {
+				errMsg.style.display = 'none';
+			}
+			let ul = getToDo.querySelector('.todo__list');
 
-		let ul = getToDo.querySelector('.todo__list');
+			let newLi = document.createElement('li');
+			let newDelBtn = document.createElement('button');
+			let text = document.createElement('span');
+			let circle = document.createElement('span');
+			let times = document.createElement('span');
 
-		let newLi = document.createElement('li');
-		let text = document.createElement('span');
-		let circle = document.createElement('span');
-		let times = document.createElement('span');
+			function addClassName(varName, className) {
+				varName.classList.add(className);
+			}
+			addClassName(newLi, 'todo__list-item');
+			addClassName(newDelBtn, 'todo__delete-btn');
+			addClassName(text, 'todo__list-text');
+			addClassName(circle, 'fal');
+			addClassName(circle, 'fa-circle');
+			addClassName(times, 'fal');
+			addClassName(times, 'fa-times-circle');
 
-		function addClassName(varName, className1, className2) {
-			varName.classList.add(className1, className2);
-		}
-		addClassName(newLi, 'todo__list-item');
-		addClassName(text, 'todo__list-text');
-		addClassName(circle, 'fal', 'fa-circle');
-		addClassName(times, 'fal', 'fa-times-circle');
-		newLi.classList.remove('undefined');
+			let textVal = document.createTextNode(getField.value);
 
-		let textVal = document.createTextNode(getField.value);
-
-		// newLi.appendChild(textVal);
-		ul.appendChild(newLi);
-		newLi.appendChild(text);
-		text.appendChild(textVal);
-		newLi.appendChild(circle);
-		newLi.appendChild(times);
-		getField.value = '';
-	});
+			ul.appendChild(newLi);
+			newLi.appendChild(text);
+			newLi.appendChild(newDelBtn);
+			text.appendChild(textVal);
+			newLi.appendChild(circle);
+			newDelBtn.appendChild(times);
+			getField.value = '';
+			removeTask();
+		});
+	}
+	addTask();
 
 	// Mark task as complete when icon clicked
 }
 
-addTask();
+task();
