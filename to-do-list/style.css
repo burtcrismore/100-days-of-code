@@ -291,6 +291,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.todo svg {
+  pointer-events: auto;
+}
 .todo .todo__header {
   padding: 0 20px;
 }
@@ -326,11 +329,15 @@ body {
 }
 .todo .todo__content .todo__list .todo__list-item .fa-circle {
   order: 0;
+  cursor: pointer;
   margin-right: 10px;
+  pointer-events: auto;
 }
 .todo .todo__content .todo__list .todo__list-item .fa-times-circle {
   order: 2;
   margin-left: auto;
+  cursor: pointer;
+  pointer-events: auto;
 }
 .todo .todo__content .todo__error-message {
   text-align: center;
@@ -358,18 +365,19 @@ body {
   font-size: 1.7rem;
   background: #60198f;
   color: #fff;
+  cursor: pointer;
 }
 .todo .todo__footer .todo__submit-btn:focus:not(:focus-visible) {
   outline: none;
 }
-.todo .todo__footer .todo__submit-field {
+.todo .todo__footer .todo__input {
   background: none;
   border: none;
   color: #fff;
   width: 100%;
   font-size: 1.2rem;
 }
-.todo .todo__footer .todo__submit-field:focus {
+.todo .todo__footer .todo__input:focus {
   outline: none;
 }
 .todo .todo__modal {
