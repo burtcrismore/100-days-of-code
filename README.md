@@ -27,3 +27,12 @@ The 100 Days of Code Challenge
 <h3>Day 8</h3>
 <p><strong>Progress Report:</strong> Today I worked on error handling with conditional statements. If the user doesn't fill out the field, show a message.</p>
 <hr>
+<h3>Day 9</h3>
+<p><strong>Progress Report:</strong> Does it count as coding if all you did was troubleshoot and run into issues? Hopefully tomorrow will be better.</p>
+<hr>
+<h3>Day 10</h3>
+<p><strong>Progress Report:</strong> Today I learned that event delegation works well for dynamically created elements.</p>
+<hr>
+<h3>Day 11</h3>
+<p><strong>Progress Report:</strong> Today was a really productive day. I refactored code to simplify my logic, worked with the Date object, and used a random number to pull in different items from an array.</p>
+<hr>

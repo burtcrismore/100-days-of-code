@@ -8,41 +8,77 @@ Project Styles
 body {
 	font-family: 'Lato', sans-serif;
 	margin: 50px;
-	color: #fff;
+	color: #525252;
+	background: #eee;
 }
 
 .todo {
 	max-width: 400px;
 	margin: auto;
-	border: 1px solid #ccc;
+	// border: 1px solid #ccc;
 	border-radius: 40px;
 	// background: linear-gradient(to bottom, #961396 0%, #f7a714 100%);
 	// background: linear-gradient(to bottom, #22c5e2 0%, #0c7fcc 100%);
 	background: linear-gradient(to bottom, #22c5e2 0%, #a044dd 100%);
 	height: 736px;
 	width: 414px;
-	border: 15px solid #000;
-	position: relative;
+	// border: 15px solid #000;
+	// position: relative;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0px 11px 20px rgb(0 0 0 / 50%);
+	background: #fff;
 
 	svg {
 		pointer-events: auto;
 	}
 
 	.todo__header {
-		padding: 0 20px;
+		padding: 20px 20px;
+		background: linear-gradient(315deg, #765ee6 0%, #4d7af1 100%);
 
+		.todo__headline {
+			color: #fff;
+			margin: 0 0 15px 0;
+		}
 		.todo__task-status {
 			display: flex;
 			justify-content: space-between;
 			align-items: baseline;
+
+			.todo__date {
+				color: #fff;
+				margin: 0;
+				font-weight: 400;
+			}
+			.todo__task-total {
+				color: #fff;
+				margin: 0;
+				font-weight: 400;
+			}
 		}
 	}
 
 	.todo__content {
 		padding: 0 10px;
+		position: relative;
+
+		.todo__daily-message {
+			text-align: center;
+			padding: 100px 30px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			.todo__daily-message--quote {
+				font-size: 1.8rem;
+				font-weight: 300;
+				line-height: 2.4rem;
+			}
+		}
 
 		.todo__list {
 			list-style: none;
@@ -53,14 +89,15 @@ body {
 
 			.todo__list-item {
 				display: flex;
-				padding: 10px 15px;
-				background: rgba(255, 255, 255, 0.6);
-				border-radius: 10px;
+				padding: 14px 15px;
+				// background: rgba(255, 255, 255, 0.6);
+				// border-radius: 10px;
 				font-size: 1.3rem;
-				margin-bottom: 3px;
-				&:last-child {
-					margin-bottom: 0;
-				}
+				border-bottom: 1px solid #e0e0e0;
+				// margin-bottom: 3px;
+				// &:last-child {
+				// 	margin-bottom: 0;
+				// }
 
 				.todo__list-text {
 					order: 1;
@@ -93,22 +130,22 @@ body {
 
 	.todo__footer {
 		margin-top: auto;
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(241, 241, 241, 0.8);
 		padding: 25px;
-		position: relative;
+		// position: relative;
 		display: flex;
 		align-items: center;
-		flex-direction: column;
+		// flex-direction: column;
 
 		.todo__submit-btn {
 			border-radius: 900px;
 			height: 50px;
 			width: 50px;
 			border: none;
-			position: absolute;
-			top: -25px;
+			// position: absolute;
+			// top: -25px;
 			font-size: 1.7rem;
-			background: #60198f;
+			background: #6d64e8;
 			color: #fff;
 			cursor: pointer;
 			&:focus:not(:focus-visible) {
@@ -120,22 +157,22 @@ body {
 			background: none;
 			border: none;
 			// border-bottom: 1px solid #fff;
-			color: #fff;
+			color: #525252;
 			width: 100%;
-			font-size: 1.2rem;
+			font-size: 1.3rem;
 			&:focus {
 				outline: none;
 			}
 		}
 	}
 
-	.todo__modal {
-		background: rgba(255, 255, 255, 0.8);
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		display: none;
-	}
+	// .todo__modal {
+	// 	background: rgba(255, 255, 255, 0.8);
+	// 	position: absolute;
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	display: none;
+	// }
 }
