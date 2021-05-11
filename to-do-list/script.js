@@ -92,7 +92,8 @@ dailyMessage();
 Create new task
 ================================================= 
 */
-function addTask() {
+function addTask(event) {
+	event.preventDefault();
 	// Check input status
 	if (input.value === '') {
 		return (errMsg.style.display = 'block');
@@ -136,6 +137,7 @@ Check if return key is pressed
 */
 function enterKey(event) {
 	if (event.code === 'Enter') {
+		event.preventDefault();
 		submit.click();
 	}
 }
@@ -147,9 +149,22 @@ Complete task
 */
 function completeTask(event) {
 	const target = event.target;
+	let dataPrefix = target.dataset.prefix;
+
 	if (target.matches('.fa-circle')) {
-		target.classList.toggle('fas');
-		console.log('task complete');
+		console.log(dataPrefix);
+		if (dataPrefix === 'fal') {
+			dataPrefix = 'fas';
+			console.log('it works');
+		}
+		// if (target.getAttribute('data-prefix') === 'fas') {
+		// 	target.setAttribute('data-prefix', 'fal');
+		// 	console.log('has fas');
+		// } else if (target.getAttribute('data-prefix') === 'fal') {
+		// 	target.setAttribute('data-prefix', 'fas');
+		// 	console.log('add fas');
+		// }
+
 		listCount();
 		dailyMessage();
 	}
