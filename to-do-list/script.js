@@ -104,23 +104,32 @@ function addTask(event) {
 
 	// Create new elements
 	const newLi = document.createElement('li');
-	const newLiText = document.createElement('span');
-	const newLiDone = document.createElement('span');
-	const newLiDelete = document.createElement('span');
+	const newLiTextDiv = document.createElement('div');
+	const newLiText = document.createElement('p');
+	const newLiDoneDiv = document.createElement('div');
+	const newLiDone = document.createElement('i');
+	const newLiDeleteDiv = document.createElement('div');
+	const newLiDelete = document.createElement('i');
 	const inputValue = document.createTextNode(input.value);
 
 	// Add class names to elements
 	newLi.classList.add('todo__list-item');
+	newLiTextDiv.classList.add('todo__list-text-div');
 	newLiText.classList.add('todo__list-text');
-	newLiDone.classList.add('fal', 'fa-circle');
+	newLiDoneDiv.classList.add('todo__done-icon');
+	newLiDone.classList.add('fal', 'fa-circle', 'dot');
+	newLiDeleteDiv.classList.add('todo__delete-icon');
 	newLiDelete.classList.add('fal', 'fa-times-circle');
 
 	// Append all new elements together
 	list.appendChild(newLi);
-	newLi.appendChild(newLiText);
+	newLi.appendChild(newLiTextDiv);
+	newLiTextDiv.appendChild(newLiText);
 	newLiText.appendChild(inputValue);
-	newLi.appendChild(newLiDone);
-	newLi.appendChild(newLiDelete);
+	newLi.appendChild(newLiDoneDiv);
+	newLiDoneDiv.appendChild(newLiDone);
+	newLi.appendChild(newLiDeleteDiv);
+	newLiDeleteDiv.appendChild(newLiDelete);
 
 	// Clear input field value
 	input.value = '';
@@ -148,20 +157,47 @@ Complete task
 ================================================= 
 */
 function completeTask(event) {
-	const target = event.target;
-	let dataPrefix = target.dataset.prefix;
-
-	if (target.matches('.fa-circle')) {
-		console.log(dataPrefix);
-		if (dataPrefix === 'fal') {
-			dataPrefix = 'fas';
-			console.log('it works');
+	const targetThis = event.target;
+	// const targetThisParent = event.target.parentElement;
+	// let dataPrefix = targetThis.dataset.prefix;
+	// let dataIcon = targetThis.matches('[data-fa-i2svg]');
+	// let dataIcon = targetThis.matches('.dot');
+	// let getDataIcon = targetThis.parentElement.getAttribute('data-fa-i2svg');
+	const doneIcon = targetThis.parentElement;
+	console.log('found circle');
+	console.log(doneIcon);
+	// console.log(targetThis);
+	
+	if (doneIcon.matches('.todo__done-icon')) {
+		console.log('match found');
+		console.log(doneIcon.children[0].dataset.prefix);
+		if (doneIcon.children[0].dataset.prefix === 'fal') {
+			console.log('has fal');
+			doneIcon.children[0].setAttribute('data-prefix', 'fas');
 		}
-		// if (target.getAttribute('data-prefix') === 'fas') {
-		// 	target.setAttribute('data-prefix', 'fal');
+		else if (doneIcon.children[0].dataset.prefix === 'fas') {
+			console.log('has fas');
+			doneIcon.children[0].setAttribute('data-prefix', 'fal');
+		}
+		// targetThis.setAttribute('data-prefix', 'fas');
+		// targetThis.classList.toggle('fas');
+		// console.log(dataIcon.children);
+		// if (dataIcon.children[0].getAttribute('data-prefix') === 'fal') {
+		// 	targetThis.dataset.prefix = 'fas';
+		// 	console.log('fas works');
+		// 	console.log(targetThis);
+		// }  
+		// if (dataPrefix === 'fas') {
+		// 	targetThis.dataset.prefix = 'fal';
+		// 	console.log('fal works');
+		// }
+
+		// if (targetThis.getAttribute('data-prefix') === 'fas') {
+		// 	targetThis.setAttribute('data-prefix', 'fal');
 		// 	console.log('has fas');
-		// } else if (target.getAttribute('data-prefix') === 'fal') {
-		// 	target.setAttribute('data-prefix', 'fas');
+		// } 
+		// if (targetThis.getAttribute('data-prefix') === 'fal') {
+		// 	targetThis.setAttribute('data-prefix', 'fas');
 		// 	console.log('add fas');
 		// }
 

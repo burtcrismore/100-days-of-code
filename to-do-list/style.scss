@@ -63,6 +63,7 @@ body {
 	.todo__content {
 		padding: 0 10px;
 		position: relative;
+		min-height: 400px;
 
 		.todo__daily-message {
 			text-align: center;
@@ -84,8 +85,7 @@ body {
 			list-style: none;
 			margin: 0;
 			padding: 0;
-			overflow-y: scroll;
-			min-height: 400px;
+			// overflow-y: scroll;
 
 			.todo__list-item {
 				display: flex;
@@ -98,22 +98,26 @@ body {
 				// &:last-child {
 				// 	margin-bottom: 0;
 				// }
-
-				.todo__list-text {
+				.todo__list-text-div {
 					order: 1;
-					font-weight: 500;
 				}
-				.fa-circle {
+				.todo__done-icon {
 					order: 0;
-					cursor: pointer;
 					margin-right: 10px;
-					pointer-events: auto;
 				}
-				.fa-times-circle {
+				.todo__delete-icon {
 					order: 2;
 					margin-left: auto;
+				}
+				.todo__list-text {
+					font-weight: 500;
+					margin: 0;
+				}
+				.fa-circle {
 					cursor: pointer;
-					pointer-events: auto;
+				}
+				.fa-times-circle {
+					cursor: pointer;
 				}
 			}
 		}

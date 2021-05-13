@@ -318,6 +318,7 @@ body {
 .todo .todo__content {
   padding: 0 10px;
   position: relative;
+  min-height: 400px;
 }
 .todo .todo__content .todo__daily-message {
   text-align: center;
@@ -337,8 +338,6 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
-  min-height: 400px;
 }
 .todo .todo__content .todo__list .todo__list-item {
   display: flex;
@@ -346,21 +345,26 @@ body {
   font-size: 1.3rem;
   border-bottom: 1px solid #e0e0e0;
 }
-.todo .todo__content .todo__list .todo__list-item .todo__list-text {
+.todo .todo__content .todo__list .todo__list-item .todo__list-text-div {
   order: 1;
-  font-weight: 500;
 }
-.todo .todo__content .todo__list .todo__list-item .fa-circle {
+.todo .todo__content .todo__list .todo__list-item .todo__done-icon {
   order: 0;
-  cursor: pointer;
   margin-right: 10px;
-  pointer-events: auto;
 }
-.todo .todo__content .todo__list .todo__list-item .fa-times-circle {
+.todo .todo__content .todo__list .todo__list-item .todo__delete-icon {
   order: 2;
   margin-left: auto;
+}
+.todo .todo__content .todo__list .todo__list-item .todo__list-text {
+  font-weight: 500;
+  margin: 0;
+}
+.todo .todo__content .todo__list .todo__list-item .fa-circle {
   cursor: pointer;
-  pointer-events: auto;
+}
+.todo .todo__content .todo__list .todo__list-item .fa-times-circle {
+  cursor: pointer;
 }
 .todo .todo__content .todo__error-message {
   text-align: center;
