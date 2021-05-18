@@ -36,3 +36,30 @@ The 100 Days of Code Challenge
 <h3>Day 11</h3>
 <p><strong>Progress Report:</strong> Today was a really productive day. I refactored code to simplify my logic, worked with the Date object, and used a random number to pull in different items from an array.</p>
 <hr>
+<h3>Day 12</h3>
+<p><strong>Progress Report:</strong> Today was a light day of coding, but I did get in some style updates to my project.</p>
+<hr>
+<h3>Day 13</h3>
+<p><strong>Progress Report:</strong> Today I worked on some finishing touches for my To-Do List project. I’m almost done.</p>
+<hr>
+<h3>Day 14</h3>
+<p><strong>Progress Report:</strong> I’ve learned a lot over the course of two weeks, and feel good about it, but I just don’t understand how to get Font Awesome SVG icons to swap using event delegation. Of all the things to get stuck on.</p>
+<hr>
+<h3>Day 15</h3>
+<p><strong>Progress Report:</strong> Today I continued troubleshooting my code. I also worked on randomization for another project.</p>
+<hr>
+<h3>Day 16</h3>
+<p><strong>Progress Report:</strong> Today I worked with "Math.floor and Math.random." I think I have a few game projects in my future.</p>
+<hr>
+<h3>Day 17</h3>
+<p><strong>Progress Report:</strong> Today I worked with JavaScript classes and used objects in a way that reduces code duplication.</p>
+<hr>
+<h3>Day 18</h3>
+<p><strong>Progress Report:</strong> Today I worked on some JS design patterns and ways to keep my code DRY.</p>
+<hr>
+<h3>Day 19</h3>
+<p><strong>Progress Report:</strong> Today I worked on conditional statements and controlling flow. Does anyone still use switch statements in JS. I get this feeling more people are using object literals.</p>
+<hr>
+<h3>Day 20</h3>
+<p><strong>Progress Report:</strong> Today I’m looping over object properties and dynamically creating tables.</p>
+<hr>
