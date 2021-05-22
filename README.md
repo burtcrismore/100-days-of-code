@@ -63,3 +63,15 @@ The 100 Days of Code Challenge
 <h3>Day 20</h3>
 <p><strong>Progress Report:</strong> Today I’m looping over object properties and dynamically creating tables.</p>
 <hr>
+<h3>Day 21</h3>
+<p><strong>Progress Report:</strong> I kept it simple today. I worked on some UI dev and created a toggle button. There are times when you just want to click on something repeatedly and watch it animate. My brain needed the rest.</p>
+<hr>
+<h3>Day 22</h3>
+<p><strong>Progress Report:</strong> Today I worked with JS event listeners and the CSS transition property. The goal was to control animations based on event timing.</p>
+<hr>
+<h3>Day 23</h3>
+<p><strong>Progress Report:</strong> Today I worked with JS DOM traversal and event handlers. I’m almost done with my first project.</p>
+<hr>
+<h3>Day 24</h3>
+<p><strong>Progress Report:</strong> To Do List done! Includes date, total task count, random quotes when zero tasks, error message when adding no task, task complete and delete task.</p>
+<hr>

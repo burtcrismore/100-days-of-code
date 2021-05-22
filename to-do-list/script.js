@@ -55,7 +55,7 @@ function listCount() {
 	// console.log(count);
 	return count;
 }
-console.log(listCount());
+// console.log(listCount());
 
 /* 
 =================================================
@@ -157,54 +157,66 @@ Complete task
 ================================================= 
 */
 function completeTask(event) {
-	const targetThis = event.target;
-	// const targetThisParent = event.target.parentElement;
-	// let dataPrefix = targetThis.dataset.prefix;
-	// let dataIcon = targetThis.matches('[data-fa-i2svg]');
-	// let dataIcon = targetThis.matches('.dot');
-	// let getDataIcon = targetThis.parentElement.getAttribute('data-fa-i2svg');
-	const doneIcon = targetThis.parentElement;
-	console.log('found circle');
-	console.log(doneIcon);
-	// console.log(targetThis);
-	
-	if (doneIcon.matches('.todo__done-icon')) {
-		console.log('match found');
-		console.log(doneIcon.children[0].dataset.prefix);
-		if (doneIcon.children[0].dataset.prefix === 'fal') {
-			console.log('has fal');
-			doneIcon.children[0].setAttribute('data-prefix', 'fas');
-		}
-		else if (doneIcon.children[0].dataset.prefix === 'fas') {
-			console.log('has fas');
-			doneIcon.children[0].setAttribute('data-prefix', 'fal');
-		}
-		// targetThis.setAttribute('data-prefix', 'fas');
-		// targetThis.classList.toggle('fas');
-		// console.log(dataIcon.children);
-		// if (dataIcon.children[0].getAttribute('data-prefix') === 'fal') {
-		// 	targetThis.dataset.prefix = 'fas';
-		// 	console.log('fas works');
-		// 	console.log(targetThis);
-		// }  
-		// if (dataPrefix === 'fas') {
-		// 	targetThis.dataset.prefix = 'fal';
-		// 	console.log('fal works');
-		// }
-
-		// if (targetThis.getAttribute('data-prefix') === 'fas') {
-		// 	targetThis.setAttribute('data-prefix', 'fal');
-		// 	console.log('has fas');
-		// } 
-		// if (targetThis.getAttribute('data-prefix') === 'fal') {
-		// 	targetThis.setAttribute('data-prefix', 'fas');
-		// 	console.log('add fas');
-		// }
-
-		listCount();
-		dailyMessage();
+	if (!event.target.closest('.todo__done-icon')) return;
+	console.log(event.target);
+	const doneIcon = event.target.closest('.todo__done-icon').firstElementChild;
+	if (doneIcon.dataset.prefix === 'fal') {
+		console.log('fal');
+		doneIcon.setAttribute('data-prefix', 'fas');
+		doneIcon.closest('.todo__list-item').classList.add('todo__list-item-done');
+	} else if (doneIcon.dataset.prefix === 'fas') {
+		console.log('fas');
+		doneIcon.setAttribute('data-prefix', 'fal');
+		doneIcon.closest('.todo__list-item').classList.remove('todo__list-item-done');
 	}
+
+	// if (!event.target.closest('.todo__done-icon :not(path)')) return;
+	// console.log(event.target);
+	// if (event.target.closest(':not(path)').dataset.prefix === 'fal') {
+	// 	event.target.setAttribute('data-prefix', 'fas');
+	// 	event.target
+	// 		.closest('.todo__list-item')
+	// 		.classList.add('todo__list-item-done');
+	// } else if (event.target.closest(':not(path)').dataset.prefix === 'fas') {
+	// 	event.target.parentElement.setAttribute('data-prefix', 'fal');
+	// 	event.target
+	// 		.closest('.todo__list-item')
+	// 		.classList.remove('todo__list-item-done');
+	// }
+
+	listCount();
+	dailyMessage();
 }
+// Delete task based on conditional fallback statement (not ideal)
+// function completeTask(event) {
+// 	console.log(event.target);
+// 	console.log(event.target.parentElement);
+
+// 	if (event.target.parentElement.matches('.todo__done-icon')) {
+// 		console.log('match found');
+// 		if (event.target.dataset.prefix === 'fal') {
+// 			console.log('has fal');
+// 			event.target.setAttribute('data-prefix', 'fas');
+// 		} else if (event.target.dataset.prefix === 'fas') {
+// 			console.log('has fas');
+// 			event.target.parentElement.parentElement.setAttribute('data-prefix', 'fal');
+// 		}
+// 	} else if (
+// 		event.target.parentElement.parentElement.matches('.todo__done-icon')
+// 	) {
+// 		console.log('it works');
+// 		if (event.target.parentElement.dataset.prefix === 'fal') {
+// 			console.log('second has fal');
+// 			event.target.setAttribute('data-prefix', 'fas');
+// 		} else if (event.target.parentElement.dataset.prefix === 'fas') {
+// 			console.log('second has fas');
+// 			event.target.parentElement.setAttribute('data-prefix', 'fal');
+// 		}
+// 	}
+
+// 	listCount();
+// 	dailyMessage();
+// }
 
 /* 
 =================================================
@@ -212,11 +224,31 @@ Delete task
 ================================================= 
 */
 function deleteTask(event) {
-	const target = event.target;
-	if (target.matches('.fa-times-circle')) {
-		target.parentElement.remove();
-		console.log('delete complete');
+	// const target = event.target;
+	// if (target.matches('.fa-times-circle')) {
+	// 	target.parentElement.parentElement.classList.add('todo__list-delete');
+	// 	target.parentElement.parentElement.remove();
+	// 	console.log('delete complete');
+	// 	listCount();
+	// 	dailyMessage();
+	// }
+
+	if (!event.target.closest('.todo__delete-icon')) return;
+	event.target.parentElement.classList.add('todo__list-delete');
+
+	event.target.parentElement.addEventListener('transitionend', function () {
+		event.target.parentElement.remove();
+
 		listCount();
 		dailyMessage();
-	}
+	});
+	// event.target.parentElement.remove();
+	console.log(event.target);
+	// if (target.matches('.todo__delete-icon')) {
+	// 	// target.parentElement.parentElement.classList.add('todo__list-delete');
+	// 	// target.parentElement.parentElement.remove();
+	// 	console.log('delete icon div');
+	// 	listCount();
+	// 	dailyMessage();
+	// }
 }
