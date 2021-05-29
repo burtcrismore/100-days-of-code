@@ -3,7 +3,7 @@
 Global variables
 ================================================= 
 */
-const playerChoice = document.querySelector('.player-choice');
+const playerChoice = document.querySelector('.player-choice__container');
 /* 
 =================================================
 Event listeners
@@ -25,13 +25,22 @@ const gameOptions = {
 	score: {
 		human: 0,
 		computer: 0
+	},
+	meterBar: {
+		human: 100,
+		computer: 100
 	}
 };
 
 const getChoice = (event) => {
+	const choiceBtn = event.target.closest('.player-choice__btn');
 	const computerChoice = gameOptions.choices[gameOptions.ranNum()];
-	const humanChoice = event.target.innerText;
-	if (event.target.matches('.player-choice__btn')) {
+	const humanChoice = choiceBtn.dataset.choice;
+
+	// console.log(event.target.closest('.player-choice__btn'));
+	// console.log(event.target.closest('.player-choice__btn').dataset.choice);
+
+	if (choiceBtn) {
 		console.log(`${humanChoice} (Human) vs ${computerChoice} (Computer)`);
 		whoWon(humanChoice, computerChoice);
 		scoring();
@@ -47,6 +56,9 @@ Check who won the round
 const whoWon = (humanChoice, computerChoice) => {
 	// Check who won
 	// Is it a tie?
+	const meterBarHuman = document.querySelector('.scoreboard__meter-bar--human');
+	const meterBarComputer = document.querySelector('.scoreboard__meter-bar--computer');
+
 	if (humanChoice === computerChoice) {
 		console.log('you tied');
 	}
@@ -55,9 +67,15 @@ const whoWon = (humanChoice, computerChoice) => {
 		if (computerChoice === 'Scissor') {
 			console.log('you win');
 			++gameOptions.score.human;
+			meterBarComputer.style.width = `${(gameOptions.meterBar.computer -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		} else {
 			console.log('you lose');
 			++gameOptions.score.computer;
+			meterBarHuman.style.width = `${(gameOptions.meterBar.human -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		}
 	}
 	// Did human pick paper?
@@ -65,9 +83,15 @@ const whoWon = (humanChoice, computerChoice) => {
 		if (computerChoice === 'Rock') {
 			console.log('you win');
 			++gameOptions.score.human;
+			meterBarComputer.style.width = `${(gameOptions.meterBar.computer -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		} else {
 			console.log('you lose');
 			++gameOptions.score.computer;
+			meterBarHuman.style.width = `${(gameOptions.meterBar.human -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		}
 	}
 	// Did human pick scissor?
@@ -75,9 +99,15 @@ const whoWon = (humanChoice, computerChoice) => {
 		if (computerChoice === 'Paper') {
 			console.log('you win');
 			++gameOptions.score.human;
+			meterBarComputer.style.width = `${(gameOptions.meterBar.computer -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		} else {
 			console.log('you lose');
 			++gameOptions.score.computer;
+			meterBarHuman.style.width = `${(gameOptions.meterBar.human -= 20)}%`;
+			console.log(gameOptions.meterBar.human, 'human');
+			console.log(gameOptions.meterBar.computer, 'computer');
 		}
 	}
 };
@@ -90,9 +120,9 @@ const scoring = () => {
 	let humanScore = gameOptions.score.human;
 	let computerScore = gameOptions.score.computer;
 	console.log(`Human ${humanScore} vs Computer ${computerScore}`);
-	if (humanScore >= 3) {
+	if (humanScore >= 5) {
 		console.log('Human wins!');
-	} else if (computerScore >= 3) {
+	} else if (computerScore >= 5) {
 		console.log('Computer wins!');
 	}
 };

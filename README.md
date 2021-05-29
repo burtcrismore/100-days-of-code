@@ -75,3 +75,24 @@ The 100 Days of Code Challenge
 <h3>Day 24</h3>
 <p><strong>Progress Report:</strong> To Do List done! Includes date, total task count, random quotes when zero tasks, error message when adding no task, task complete and delete task.</p>
 <hr>
+<h3>Day 25</h3>
+<p><strong>Progress Report:</strong> Today I started the task of redesigning and developing my portfolio site. I spent some time looking into Gatsby JS. Anyone use Gatsby?</p>
+<hr>
+<h3>Day 26</h3>
+<p><strong>Progress Report:</strong> Today was a short day of coding. I worked a little bit on conditionals and form field feedback.</p>
+<hr>
+<h3>Day 27</h3>
+<p><strong>Progress Report:</strong> Today I worked on coding a nav bar in preparation for a sticky JS scroll-to nav.</p>
+<hr>
+<h3>Day 28</h3>
+<p><strong>Progress Report:</strong> Today I worked with JS scrollTo and event listeners.</p>
+<hr>
+<h3>Day 29</h3>
+<p><strong>Progress Report:</strong> Today I worked on some JS design patterns. What are some of your go to patterns?</p>
+<hr>
+<h3>Day 30</h3>
+<p><strong>Progress Report:</strong> Wow, 30 days so far. Today I worked on my Rock, Paper, Scissor game.</p>
+<hr>
+<h3>Day 31</h3>
+<p><strong>Progress Report:</strong> Today was mainly CSS as I styled my Rock, Paper, Scissor game. And of course a little bit of JS.</p>
+<hr>
