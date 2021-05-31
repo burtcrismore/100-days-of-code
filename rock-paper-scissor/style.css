@@ -361,7 +361,7 @@ body {
 .scoreboard__stats::after {
   content: "";
   border: 1px solid #000;
-  width: 90%;
+  width: 80%;
   height: 36px;
   position: absolute;
   border-radius: 25px;
@@ -394,6 +394,7 @@ body {
 .scoreboard__meter-bar {
   background: #fff;
   width: 100%;
+  transition: all 200ms linear;
 }
 .scoreboard__divider {
   text-align: center;
@@ -416,25 +417,54 @@ body {
 .results__panel {
   font-size: 7rem;
   text-align: center;
+  position: relative;
 }
-.results__panel--human .fa-hand-rock {
-  transform: rotate(90deg);
-}
-.results__panel--computer .fa-hand-rock {
-  transform: scaleX(-1) rotate(90deg);
-}
-.results__panel svg[data-prefix=fas] {
-  color: #fff;
-}
-.results__panel .fa-stack:before {
+.results__panel--border {
   content: "";
   height: 200px;
   width: 200px;
   border-radius: 50%;
   border: 4px dotted rgba(0, 0, 0, 0.25);
   position: absolute;
-  left: 40px;
-  top: 12px;
+  left: 0;
+  right: 0;
+  top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.results__panel--human-paper, .results__panel--human-scissors {
+  display: none;
+}
+.results__panel--human .fa-hand-rock,
+.results__panel--human .fa-hand-paper {
+  transform: rotate(90deg);
+}
+.results__panel--human .fa-hand-scissors {
+  transform: scaleX(-1);
+}
+.results__panel--computer-paper, .results__panel--computer-scissors {
+  display: none;
+}
+.results__panel--computer .fa-hand-rock,
+.results__panel--computer .fa-hand-paper {
+  transform: scaleX(-1) rotate(90deg);
+}
+.results__panel--move-hand {
+  animation: hand-animate 400ms 4;
+}
+@keyframes hand-animate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.results__panel svg[data-prefix=fas] {
+  color: #fff;
 }
 
 .message {

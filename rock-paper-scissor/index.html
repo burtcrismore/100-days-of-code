@@ -8,13 +8,13 @@
 		<script src="https://kit.fontawesome.com/bff7f91377.js"></script>
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Sigmar+One&display=swap" rel="stylesheet" />
-		<title>Rock - Paper - Scissor</title>
+		<title>Rock - Paper - Scissors</title>
 	</head>
 	<body>
 		<div class="banner"></div>
 		<div class="container">
 			<div class="title">
-				<h1 class="title__headline">Rock, Paper, Scissor</h1>
+				<h1 class="title__headline">Rock, Paper, Scissors</h1>
 			</div>
 			<div class="scoreboard">
 				<div class="scoreboard__panel">
@@ -47,21 +47,38 @@
 			</div>
 			<div class="results">
 				<div class="results__panel results__panel--human">
-					<span class="fa-stack">
+					<div class="results__panel--border"></div>
+					<span class="fa-stack results__panel--human-rock">
 						<i class="fas fa-hand-rock fa-stack-1x"></i>
 						<i class="fal fa-hand-rock fa-stack-1x"></i>
 					</span>
 
-					<!-- <i class="fal fa-hand-paper fa-rotate-90"></i>
-					<i class="fal fa-hand-scissors fa-flip-horizontal"></i> -->
+					<span class="fa-stack results__panel--human-paper">
+						<i class="fas fa-hand-paper fa-stack-1x"></i>
+						<i class="fal fa-hand-paper fa-stack-1x"></i>
+					</span>
+
+					<span class="fa-stack results__panel--human-scissors">
+						<i class="fas fa-hand-scissors fa-stack-1x"></i>
+						<i class="fal fa-hand-scissors fa-stack-1x"></i>
+					</span>
 				</div>
 				<div class="results__panel results__panel--computer">
-					<span class="fa-stack">
+					<div class="results__panel--border"></div>
+					<span class="fa-stack results__panel--computer-rock">
 						<i class="fas fa-hand-rock fa-stack-1x"></i>
 						<i class="fal fa-hand-rock fa-stack-1x"></i>
 					</span>
-					<!-- <i class="fal fa-hand-paper fa-flip-vertical"></i>
-					<i class="fal fa-hand-scissors"></i> -->
+
+					<span class="fa-stack results__panel--computer-paper">
+						<i class="fas fa-hand-paper fa-stack-1x"></i>
+						<i class="fal fa-hand-paper fa-stack-1x"></i>
+					</span>
+
+					<span class="fa-stack results__panel--computer-scissors">
+						<i class="fas fa-hand-scissors fa-stack-1x"></i>
+						<i class="fal fa-hand-scissors fa-stack-1x"></i>
+					</span>
 				</div>
 			</div>
 			<div class="message">
@@ -71,7 +88,7 @@
 				<div class="player-choice__container">
 					<button class="player-choice__btn" data-choice="Rock"><i class="fal fa-hand-rock fa-rotate-90"></i></button>
 					<button class="player-choice__btn" data-choice="Paper"><i class="fal fa-hand-paper fa-rotate-90"></i></button>
-					<button class="player-choice__btn" data-choice="Scissor"><i class="fal fa-hand-scissors fa-flip-horizontal"></i></button>
+					<button class="player-choice__btn" data-choice="Scissors"><i class="fal fa-hand-scissors fa-flip-horizontal"></i></button>
 				</div>
 			</div>
 		</div>

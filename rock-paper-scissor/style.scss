@@ -104,7 +104,7 @@ body {
 		&::after {
 			content: '';
 			border: 1px solid #000;
-			width: 90%;
+			width: 80%;
 			height: 36px;
 			position: absolute;
 			border-radius: 25px;
@@ -144,6 +144,7 @@ body {
 		&-bar {
 			background: #fff;
 			width: 100%;
+			transition: all 200ms linear;
 		}
 	}
 
@@ -170,16 +171,60 @@ body {
 	&__panel {
 		font-size: 7rem;
 		text-align: center;
+		position: relative;
+
+		&--border {
+			content: '';
+			height: 200px;
+			width: 200px;
+			border-radius: 50%;
+			border: 4px dotted rgb(0 0 0 / 25%);
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 		&--human {
-			.fa-hand-rock {
+			&-paper,
+			&-scissors {
+				display: none;
+			}
+			.fa-hand-rock,
+			.fa-hand-paper {
 				transform: rotate(90deg);
+			}
+			.fa-hand-scissors {
+				transform: scaleX(-1);
 			}
 		}
 
 		&--computer {
-			.fa-hand-rock {
+			&-paper,
+			&-scissors {
+				display: none;
+			}
+			.fa-hand-rock,
+			.fa-hand-paper {
 				transform: scaleX(-1) rotate(90deg);
+			}
+		}
+
+		&--move-hand {
+			animation: hand-animate 400ms 4;
+		}
+
+		@keyframes hand-animate {
+			0% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-30px);
+			}
+			100% {
+				transform: translateY(0);
 			}
 		}
 
@@ -187,16 +232,16 @@ body {
 			color: #fff;
 		}
 
-		.fa-stack:before {
-			content: '';
-			height: 200px;
-			width: 200px;
-			border-radius: 50%;
-			border: 4px dotted rgb(0 0 0 / 25%);
-			position: absolute;
-			left: 40px;
-			top: 12px;
-		}
+		// .fa-stack:before {
+		// 	content: '';
+		// 	height: 200px;
+		// 	width: 200px;
+		// 	border-radius: 50%;
+		// 	border: 4px dotted rgb(0 0 0 / 25%);
+		// 	position: absolute;
+		// 	left: 40px;
+		// 	top: 12px;
+		// }
 	}
 }
 
