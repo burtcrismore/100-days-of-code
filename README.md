@@ -96,3 +96,30 @@ The 100 Days of Code Challenge
 <h3>Day 31</h3>
 <p><strong>Progress Report:</strong> Today was mainly CSS as I styled my Rock, Paper, Scissor game. And of course a little bit of JS.</p>
 <hr>
+<h3>Day 32</h3>
+<p><strong>Progress Report:</strong> Today I worked with CSS animations and event listers that wait until the animations end..</p>
+<hr>
+<h3>Day 33</h3>
+<p><strong>Progress Report:</strong> Today I worked on using an object to store shared logic. My goal is to update my code so it’s more organized and not repetitive.</p>
+<hr>
+<h3>Day 34</h3>
+<p><strong>Progress Report:</strong> Today I worked on JavaScript promises. It’s by far the most confusing concept so far.</p>
+<hr>
+<h3>Day 35</h3>
+<p><strong>Progress Report:</strong> Today I worked on JavaScript callbacks. It’s moments like these where I really have stop myself and take the time to learn basic concepts before moving on.</p>
+<hr>
+<h3>Day 36</h3>
+<p><strong>Progress Report:</strong> I had a talk with JavaScript today and they said take a break, so I brushed up on some Sass instead.</p>
+<hr>
+<h3>Day 37</h3>
+<p><strong>Progress Report:</strong> Today I jumped back into JS promises and async/await. Surprisingly, it is starting to make more sense.</p>
+<hr>
+<h3>Day 38</h3>
+<p><strong>Progress Report:</strong> Well, I thought I was getting somewhere with JS promises. I understand the concept, but it’s unclear how to pass the resolve() values correctly. I’m attempting to chain a series of loops and conditions.</p>
+<hr>
+<h3>Day 39</h3>
+<p><strong>Progress Report:</strong> Today I realized that I might be using the wrong “coding tool” for the job. One of the challenges of teaching yourself is that you have no one to tell you you’re doing it wrong. I think it was learning moment.</p>
+<hr>
+<h3>Day 40</h3>
+<p><strong>Progress Report:</strong> Today I worked on chaining object methods and the relationship of {this} and the object.</p>
+<hr>

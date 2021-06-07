@@ -380,7 +380,7 @@ body {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
-  background: #ccc;
+  background: #b85858;
   height: 40px;
 }
 .scoreboard__meter--human {
@@ -502,4 +502,8 @@ body {
 .player-choice__btn:hover {
   box-shadow: 4px 8px 0 0 #000;
   transform: translateY(-3px);
+}
+.player-choice__btn:disabled {
+  border: 2px solid #9b9b9b;
+  box-shadow: 2px 4px 0 0 #9b9b9b;
 }
