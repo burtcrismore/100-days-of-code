@@ -413,6 +413,7 @@ body {
   grid-template-rows: 1fr;
   grid-column-gap: 100px;
   grid-row-gap: 0px;
+  min-height: 250px;
 }
 .results__panel {
   font-size: 7rem;
@@ -439,8 +440,12 @@ body {
 .results__panel--human .fa-hand-paper {
   transform: rotate(90deg);
 }
+.results__panel--human .fa-hand-paper {
+  left: 50px;
+}
 .results__panel--human .fa-hand-scissors {
   transform: scaleX(-1);
+  left: 50px;
 }
 .results__panel--computer-paper, .results__panel--computer-scissors {
   display: none;
@@ -448,6 +453,10 @@ body {
 .results__panel--computer .fa-hand-rock,
 .results__panel--computer .fa-hand-paper {
   transform: scaleX(-1) rotate(90deg);
+}
+.results__panel--computer .fa-hand-paper,
+.results__panel--computer .fa-hand-scissors {
+  left: 40px;
 }
 .results__panel--move-hand {
   animation: hand-animate 400ms 4;
@@ -469,7 +478,7 @@ body {
 
 .message {
   text-align: center;
-  margin: 4rem 0 2rem 0;
+  margin: 1rem 0 2rem 0;
   text-transform: uppercase;
   font-family: "Londrina Solid";
   font-weight: 300;

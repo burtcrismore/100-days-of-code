@@ -49,6 +49,15 @@ const roundSteps = {
 	faStacks: document.querySelectorAll('.fa-stack'),
 	meterBarHuman: document.querySelector('.scoreboard__meter-bar--human'),
 	meterBarComputer: document.querySelector('.scoreboard__meter-bar--computer'),
+	// panelHuman: document.querySelector('.results__panel--human'),
+	// panelComputer: document.querySelector('.results__panel--computer'),
+	humanRock: document.querySelector('.results__panel--human-rock'),
+	humanPaper: document.querySelector('.results__panel--human-paper'),
+	humanScissors: document.querySelector('.results__panel--human-scissors'),
+	computerRock: document.querySelector('.results__panel--computer-rock'),
+	computerPaper: document.querySelector('.results__panel--computer-paper'),
+	computerScissors: document.querySelector('.results__panel--computer-scissors'),
+
 	// handMove: document.querySelector('.results__panel--move-hand'),
 	disableBtn() {
 		console.log('disable button');
@@ -64,42 +73,95 @@ const roundSteps = {
 		return this;
 	},
 	handAnimation() {
-		console.log('animate hand');
-
-		for (faStack of this.faStacks) {
-			if (faStack.classList.contains('results__panel--move-hand')) {
-				faStack.classList.remove('results__panel--move-hand');
-			} else if (!faStack.classList.contains('results__panel--move-hand')) {
-				faStack.classList.add('results__panel--move-hand');
-			}
+		// console.log('animate hand');
+		const containsHumanRock = this.humanRock.classList.contains('results__panel--move-hand');
+		const containsComputerRock = this.computerRock.classList.contains('results__panel--move-hand');
+		if (containsHumanRock || containsComputerRock) {
+			this.humanRock.classList.remove('results__panel--move-hand');
+			this.computerRock.classList.remove('results__panel--move-hand');
+		} else if (!containsHumanRock || containsComputerRock) {
+			this.humanRock.classList.add('results__panel--move-hand');
+			this.computerRock.classList.add('results__panel--move-hand');
 		}
+		// for (faStack of this.faStacks) {
+		// 	if (faStack.classList.contains('results__panel--move-hand')) {
+		// 		faStack.classList.remove('results__panel--move-hand');
+		// 	} else if (!faStack.classList.contains('results__panel--move-hand')) {
+		// 		faStack.classList.add('results__panel--move-hand');
+		// 	}
+		// }
 		return this;
 	},
 	handAnimationEnd(humanChoice, computerChoice) {
+		// currently only listens for the first handMove. need to add second listener or even delegation
 		const handMove = document.querySelector('.results__panel--move-hand');
 		handMove.addEventListener('animationend', () => {
 			console.log('animation ended');
-			this.changeHand(humanChoice);
+			this.changeHand(humanChoice, computerChoice);
 			this.whoWon(humanChoice, computerChoice);
+			this.resetRound(humanChoice, computerChoice);
 		});
-		return this;
+		// return this;
 	},
-	changeHand(humanChoice) {
+	changeHand(humanChoice, computerChoice) {
 		// console.log(humanChoice);
-		console.log('check human choice');
-		switch (humanChoice) {
-			case 'Rock':
-				console.log('Rock');
-				break;
-			case 'Paper':
-				console.log('Paper');
-				break;
-			case 'Scissors':
-				console.log('Scissors');
-				break;
-			default:
-				console.log('Sorry, no hand.');
+		// console.log('check human choice');
+		// console.log(this.humanRock);
+
+		// if (humanChoice === 'Rock') {
+		// } else if (humanChoice === 'Paper') {
+		// 	this.humanRock.style.display = 'none';
+		// 	this.humanPaper.style.display = 'block';
+		// } else if (humanChoice === 'Scissors') {
+		// 	this.humanRock.style.display = 'none';
+		// 	this.humanScissors.style.display = 'block';
+		// }
+
+		// if (computerChoice === 'Rock') {
+		// } else if (computerChoice === 'Paper') {
+		// 	this.computerRock.style.display = 'none';
+		// 	this.computerPaper.style.display = 'block';
+		// } else if (computerChoice === 'Scissors') {
+		// 	this.computerRock.style.display = 'none';
+		// 	this.computerScissors.style.display = 'block';
+		// }
+		if (humanChoice != 'Rock') {
+			this.humanRock.style.display = 'none';
+
+			if (humanChoice === 'Paper') {
+				console.log('human paper icon');
+				this.humanPaper.style.display = 'block';
+			} else {
+				console.log('human scissors icon');
+				this.humanScissors.style.display = 'block';
+			}
 		}
+
+		if (computerChoice != 'Rock') {
+			this.computerRock.style.display = 'none';
+
+			if (computerChoice === 'Paper') {
+				console.log('computer paper icon');
+				this.computerPaper.style.display = 'block';
+			} else {
+				console.log('computer scissors icon');
+				this.computerScissors.style.display = 'block';
+			}
+		}
+
+		// switch (humanChoice) {
+		// 	case 'Rock':
+		// 		console.log('Rock');
+		// 		break;
+		// 	case 'Paper':
+		// 		console.log('Paper');
+		// 		break;
+		// 	case 'Scissors':
+		// 		console.log('Scissors');
+		// 		break;
+		// 	default:
+		// 		console.log('Sorry, no hand.');
+		// }
 		return this;
 	},
 	whoWon(humanChoice, computerChoice) {
@@ -138,7 +200,33 @@ const roundSteps = {
 			}
 		}
 	},
-	resetHand() {}
+	resetRound(humanChoice, computerChoice) {
+		// Buttons
+		this.disableBtn();
+		// Hands
+		if (humanChoice != 'Rock') {
+			this.humanRock.style.display = 'block';
+			if (humanChoice === 'Paper') {
+				this.humanPaper.style.display = 'none';
+			} else {
+				this.humanScissors.style.display = 'none';
+			}
+		}
+
+		if (computerChoice != 'Rock') {
+			this.computerRock.style.display = 'block';
+			if (computerChoice === 'Paper') {
+				this.computerPaper.style.display = 'none';
+			} else {
+				this.computerScissors.style.display = 'none';
+			}
+		}
+		// Animations
+		this.humanRock.classList.remove('results__panel--move-hand');
+		this.computerRock.classList.remove('results__panel--move-hand');
+
+		return this;
+	}
 };
 
 const startRound = (event) => {
