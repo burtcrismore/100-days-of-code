@@ -409,11 +409,39 @@ body {
 
 .results {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 100px;
+  grid-template-columns: 40% 20% 40%;
   grid-row-gap: 0px;
   min-height: 250px;
+}
+.results__divider {
+  text-align: center;
+}
+.results__divider-winner, .results__divider-loser, .results__divider-draw {
+  display: none;
+}
+.results__divider-message {
+  font-size: 3rem;
+  font-family: "Londrina Solid";
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.results__divider-message--show {
+  display: block;
+  animation: message-show 900ms ease-in-out 1;
+}
+@keyframes message-show {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .results__panel {
   font-size: 7rem;
@@ -441,11 +469,11 @@ body {
   transform: rotate(90deg);
 }
 .results__panel--human .fa-hand-paper {
-  left: 50px;
+  left: 100px;
 }
 .results__panel--human .fa-hand-scissors {
   transform: scaleX(-1);
-  left: 50px;
+  left: 100px;
 }
 .results__panel--computer-paper, .results__panel--computer-scissors {
   display: none;
@@ -456,7 +484,7 @@ body {
 }
 .results__panel--computer .fa-hand-paper,
 .results__panel--computer .fa-hand-scissors {
-  left: 40px;
+  left: 80px;
 }
 .results__panel--move-hand {
   animation: hand-animate 400ms 4;
@@ -474,6 +502,12 @@ body {
 }
 .results__panel svg[data-prefix=fas] {
   color: #fff;
+}
+.results__panel--hide {
+  display: none;
+}
+.results__panel--show {
+  display: block;
 }
 
 .message {
