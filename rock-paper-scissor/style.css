@@ -275,22 +275,39 @@ Project Styles
   --gutter-x: 2rem;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background: #e2bb4e;
+  display: flex;
+  flex-direction: column;
 }
 
 .banner {
-  background-image: linear-gradient(230deg, black 16px, transparent 17px), linear-gradient(130deg, black 16px, transparent 17px);
   background-size: 15px 25px;
   background-repeat: repeat-x;
   height: 25px;
 }
-.banner::before {
-  content: "";
-  border-top: 1px solid #000;
-  width: 80%;
-  display: block;
-  margin: auto;
+
+.banner__header {
+  background-image: linear-gradient(230deg, black 16px, transparent 17px), linear-gradient(130deg, black 16px, transparent 17px);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.banner__footer {
+  background-image: linear-gradient(40deg, black 16px, transparent 17px), linear-gradient(320deg, black 16px, transparent 17px);
+  position: absolute;
+  top: -25px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.main__content {
+  flex: 1 0 auto;
 }
 
 .container {
@@ -298,6 +315,35 @@ body {
   margin: 0 auto;
   padding-right: var(--gutter-x);
   padding-left: var(--gutter-x);
+  width: 100%;
+}
+
+.footer {
+  background: #000;
+  color: #a98c3a;
+  padding: 0 0 10px 0;
+  font-size: 0.9rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.footer__links {
+  color: #8f8f8f;
+  text-decoration: none;
+}
+.footer__spacer {
+  margin: 0 20px;
+}
+.footer__notice {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__col {
+  display: flex;
+  align-items: center;
+}
+.footer__social-icon {
+  margin-right: 12px;
+  font-size: 1.5rem;
 }
 
 .title {
@@ -415,8 +461,11 @@ body {
 }
 .results__divider {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.results__divider-winner, .results__divider-loser, .results__divider-draw {
+.results__divider-winner, .results__divider-loser, .results__divider-draw, .results__divider-match-won, .results__divider-match-lost {
   display: none;
 }
 .results__divider-message {
@@ -425,6 +474,7 @@ body {
   font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin: 0;
 }
 .results__divider-message--show {
   display: block;
@@ -461,6 +511,16 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.results__panel .fa-stack {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .results__panel--human-paper, .results__panel--human-scissors {
   display: none;
 }
@@ -468,12 +528,11 @@ body {
 .results__panel--human .fa-hand-paper {
   transform: rotate(90deg);
 }
-.results__panel--human .fa-hand-paper {
-  left: 100px;
-}
 .results__panel--human .fa-hand-scissors {
   transform: scaleX(-1);
-  left: 100px;
+}
+.results__panel--human .results__panel--move-hand {
+  animation: hand-animate-human 350ms 4;
 }
 .results__panel--computer-paper, .results__panel--computer-scissors {
   display: none;
@@ -482,19 +541,26 @@ body {
 .results__panel--computer .fa-hand-paper {
   transform: scaleX(-1) rotate(90deg);
 }
-.results__panel--computer .fa-hand-paper,
-.results__panel--computer .fa-hand-scissors {
-  left: 80px;
+.results__panel--computer .results__panel--move-hand {
+  animation: hand-animate-computer 350ms 4;
 }
-.results__panel--move-hand {
-  animation: hand-animate 400ms 4;
-}
-@keyframes hand-animate {
+@keyframes hand-animate-human {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-30px);
+    transform: translateY(-30px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes hand-animate-computer {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
   }
   100% {
     transform: translateY(0);
@@ -529,6 +595,7 @@ body {
 .player-choice {
   display: flex;
   justify-content: center;
+  margin-bottom: 70px;
 }
 .player-choice__btn {
   background: #fff;
@@ -549,4 +616,26 @@ body {
 .player-choice__btn:disabled {
   border: 2px solid #9b9b9b;
   box-shadow: 2px 4px 0 0 #9b9b9b;
+}
+.player-choice__reset {
+  display: none;
+  margin: 25px auto;
+  border: 2px solid #000;
+  background: #fff;
+  font-family: "Londrina Solid";
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 1px 2px 0 0 #000;
+  transition: all 100ms linear;
+}
+.player-choice__reset:hover {
+  box-shadow: 2px 4px 0 0 #000;
+  transform: translateY(-2px);
+}
+.player-choice__reset--show {
+  display: block;
 }
